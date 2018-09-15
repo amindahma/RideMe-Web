@@ -12,8 +12,8 @@ export class BikeListComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    let res = this.http.get("http://159.89.174.241:8095/bikes")
-    // let res = this.http.get("http://localhost:8095/bikes")
+    // let res = this.http.get("http://159.89.174.241:8095/bikes")
+    let res = this.http.get("http://localhost:8095/bikes")
     res.subscribe((response) => {
       console.log(response)
       this.response = response
