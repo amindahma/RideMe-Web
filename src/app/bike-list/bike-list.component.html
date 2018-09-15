@@ -1,0 +1,27 @@
+<p>
+  bike-list works!
+</p>
+<table class="table table-sm dataTable">
+  <thead class="thead-dark">
+    <tr>
+      <!-- <td>ID</td> -->
+      <td>Index</td>
+      <td>id</td>
+      <td>free</td>
+      <td>type</td>
+      <td>rent</td>
+    </tr>
+  </thead>
+  
+  <tbody >
+    <tr *ngFor="let dataItem of response; index as i">
+      <td>{{i}}</td>
+      <td>{{dataItem.id}}</td>
+      <td>{{dataItem.free}}</td>
+      <td>{{dataItem.type}}</td>
+      <td>{{dataItem.rent}}</td>
+
+    </tr>
+  </tbody>
+
+</table>

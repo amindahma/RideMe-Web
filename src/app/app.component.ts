@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'Ride Me';
+  
+
+  constructor(){
+    // this.svc.
+    console.log("Start")
+  }
+
+  ngOnInit(){
+    
+  }
 }
