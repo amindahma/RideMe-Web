@@ -1,27 +1,30 @@
-<p>
-  bike-list works!
-</p>
-<table class="table table-sm dataTable">
-  <thead class="thead-dark">
-    <tr>
-      <!-- <td>ID</td> -->
-      <td>Index</td>
-      <td>id</td>
-      <td>free</td>
-      <td>type</td>
-      <td>rent</td>
-    </tr>
-  </thead>
-  
-  <tbody >
-    <tr *ngFor="let dataItem of response; index as i">
-      <td>{{i}}</td>
-      <td>{{dataItem.id}}</td>
-      <td>{{dataItem.free}}</td>
-      <td>{{dataItem.type}}</td>
-      <td>{{dataItem.rent}}</td>
-
-    </tr>
-  </tbody>
-
-</table>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th>#No</th>
+          <th>pack</th>
+          <th>type</th>
+          <th>location</th>
+          <th>hours</th>
+          <th>date</th>
+          <th>rent</th>
+          <th>name</th>
+          <th>nic</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr tr *ngFor="let dataItem of response; index as i">
+          <td>{{dataItem.id}}</td>
+          <td>{{dataItem.pack}}</td>
+          <td>{{dataItem.type}}</td>
+          <td>{{dataItem.location}}</td>
+          <td>{{dataItem.hours}}</td>
+          <td>{{dataItem.date}}</td>
+          <td>{{dataItem.rent}}</td>
+          <td>{{dataItem.name}}</td>
+          <td>{{dataItem.nic}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
