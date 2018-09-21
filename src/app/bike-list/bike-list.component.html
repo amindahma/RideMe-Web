@@ -1,30 +1,66 @@
+<h4>Booking Details</h4>
+<br/>
+
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control" placeholder="yyyy-mm-dd" (ngModelChange)="onDateSelection($event)"
+             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" >
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<br/>
+
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-sm">
       <thead class="thead-dark">
         <tr>
-          <th>#No</th>
-          <th>pack</th>
-          <th>type</th>
-          <th>location</th>
-          <th>hours</th>
-          <th>date</th>
-          <th>rent</th>
-          <th>name</th>
-          <th>nic</th>
+          <th>Date</th>
+          <th>#Bike</th>
+          <th>Package</th>
+          <th>Type</th>
+          <th>Location</th>
+          <th>Hours</th>
+          <th>Rent</th>
+          <th>Name</th>
+          <th>#NIC</th>
+          <th>Riding</th>
         </tr>
       </thead>
       <tbody>
         <tr tr *ngFor="let dataItem of response; index as i">
-          <td>{{dataItem.id}}</td>
-          <td>{{dataItem.pack}}</td>
-          <td>{{dataItem.type}}</td>
-          <td>{{dataItem.location}}</td>
-          <td>{{dataItem.hours}}</td>
-          <td>{{dataItem.date}}</td>
-          <td>{{dataItem.rent}}</td>
-          <td>{{dataItem.name}}</td>
-          <td>{{dataItem.nic}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.date}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.id}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.pack}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.type}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.location}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.hours}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.rent}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.name}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}">{{dataItem.nic}}</td>
+          <td [ngClass]="{'is-active': dataItem.riding == 'End'}"> 
+            <button  class="btn btn-outline-primary btn-width-x" (click)="openVerticallyCentered(content, dataItem)">{{dataItem.riding}}</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
+
+  <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Confirmation</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Ride status will be changed..&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click'); setRiding();" >OK</button>
+      </div>
+    </ng-template>

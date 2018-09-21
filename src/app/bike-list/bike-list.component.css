@@ -10,3 +10,9 @@ table tr:nth-child(odd) {
 table tr:nth-child(even) {
   background-color: #ffffff;
 }
+.is-active{
+  background-color: #b7f59f;
+}
+.btn-width-x{
+  width: 100%;
+}
