@@ -75,7 +75,7 @@ export class BikeListComponent implements OnInit {
 
   openVerticallyCentered(content, item) {
     this.itemSelected = item;
-    this.modalService.open(content, { centered: true });
+    this.modalService.open(content, { centered: true, size: 'sm' });
   }
 
 }
